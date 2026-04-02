@@ -496,7 +496,7 @@ cellule, le profil reste parabolique conformément aux résultats des objectifs 
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{50_cell_contact.png}
-\caption{Profil de température sur 50 cellules avec résistance de contact $R_c$ sans source interne}
+\caption{Profil de température sur 50 cellules avec résistance de contact $R_c$ - Profil linéaire}
 \end{figure}
 ```
 
@@ -504,7 +504,7 @@ cellule, le profil reste parabolique conformément aux résultats des objectifs 
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{Rc_50_Source.png}
-\caption{Profil de température sur 50 cellules avec résistance de contact $R_c$ avec source interne}
+\caption{Profil de température sur 50 cellules avec résistance de contact $R_c$ - Profil parabolique}
 \end{figure}
 ```
 
