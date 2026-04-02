@@ -1,0 +1,15 @@
+'charge_lente'
+1000 !N
+5 !Nombre de couches
+20.0E-6       237.0      640.0 ! epaisseur/Conductivité/Source
+100.0E-6      1.58       2720.0
+25.0E-6       0.33       1280.0
+90.0E-6       5.0        2720.0
+15.0E-6       398.0      640.0
+10 !hw
+40 !T_ext_w
+0 !qw
+10 !he
+40 !T_ext_e
+0 !qe
+0 !alpha

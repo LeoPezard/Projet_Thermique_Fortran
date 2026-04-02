@@ -8,7 +8,6 @@ Integer :: N, i, j, Ncouches
 Integer, Parameter :: N_rep = 50 ! A changer pour tester le nombre de cellules voulues
 Real*8 :: L_tot, L_batterie, dx_bat
 Real*8 :: R_tot_cell, K_eq_cell, S_eq
-Real*8 :: e_contact, K_contact, S_contact, K_eq_asm, R_tot_asm
 Real*8, Allocatable :: K_couche(:), S_couche(:), e_couche(:)
 Real*8, Allocatable :: K_vol(:), S_vol(:)
  
@@ -23,8 +22,8 @@ Real*8 :: denom, ke, kw
 !========================
 ! Lecture données
 !========================
-Open(15, file="data_lente.txt")
-!Open(15, file="data_rapide.txt")
+Open(15, file="../data/data_lente.txt")
+!Open(15, file="../data/data_rapide.txt")
  
 Read(15,*)
 Read(15,*) N
@@ -35,10 +34,7 @@ Allocate(e_couche(Ncouches), K_couche(Ncouches), S_couche(Ncouches))
 Do j = 1, Ncouches
     Read(15,*) e_couche(j), K_couche(j), S_couche(j)
 End Do
-
-Read(15,*) e_contact, K_contact, S_contact
-
-
+ 
 Read(15,*) hw
 Read(15,*) T_ext_w
 Read(15,*) qw
@@ -60,7 +56,7 @@ L_tot      = sum(e_couche)
 L_batterie = L_tot * dble(N_rep)
  
 !========================
-! Conductivité équivalente (résistances en série)
+! Conductivité équivalente
 !========================
 R_tot_cell = 0.d0
 Do j = 1, Ncouches
@@ -68,11 +64,6 @@ Do j = 1, Ncouches
 End Do
 K_eq_cell = L_tot / R_tot_cell
  
-
-R_tot_asm = dble(N_rep) * L_tot / K_eq_cell + dble(N_rep - 1) * ( e_contact / K_contact)
-K_eq_asm  = L_batterie / R_tot_asm
-
-
 !========================
 ! Source équivalente (moyenne pondérée par épaisseur)
 !========================
@@ -86,9 +77,7 @@ Print*, "K_eq_cell (W/mK) = ", K_eq_cell
 Print*, "S_eq      (W/m3) = ", S_eq
 Print*, "L_batterie  (m)  = ", L_batterie
  
-!========================
-! Allocation
-!========================
+
 Allocate(X(N), T(N), ap(N), aw(N), ae(N), b(N))
 Allocate(dw(N), de(N), dx(N), K_vol(N), S_vol(N))
 Allocate(P(N), Q(N))
@@ -105,7 +94,7 @@ End Do
 ! Propriétés locales (homogène équivalent)
 !========================
 Do i = 1, N
-    K_vol(i) = K_eq_asm
+    K_vol(i) = K_eq_cell
     S_vol(i) = S_eq
 End Do
  
