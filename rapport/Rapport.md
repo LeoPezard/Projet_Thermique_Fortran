@@ -536,7 +536,7 @@ au comportement physique attendu.
 ```{=latex}
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{Rc_Keq_50_lin.png}
+\includegraphics[width=\textwidth]{photo1.png}
 \caption{Profil de température sur 50 cellules — comparaison modèle explicite et conductivité équivalente avec $R_c$ avec $T_{fluide} = 40$ °C à l'Ouest et $T_{fluide} = 50$ °C à l'Est}
 \end{figure}
 ```
@@ -544,7 +544,7 @@ au comportement physique attendu.
 ```{=latex}
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{Rc_Keq_50_Seq.png}
+\includegraphics[width=\textwidth]{photo2.png}
 \caption{Profil de température sur 50 cellules — comparaison modèle explicite et conductivité équivalente avec $R_c$ avec $T_{fluide} = 40$ °C de chaque côté}
 \end{figure}
 ```
